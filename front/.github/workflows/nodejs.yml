@@ -1,0 +1,25 @@
+name: Fakebooker-Frontend
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-16.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: ESLint
+        uses: stefanoeb/eslint-action@1.0.2
+        with:
+          files: src/
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: npm install, build, and lint ( fix )
+        run: |
+          npm run lint:fix
+          npm run lint
+          npm run build
+        env:
+          CI: true
