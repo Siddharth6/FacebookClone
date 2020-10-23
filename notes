@@ -1,7 +1,4 @@
-//aws_credentials
-root_user: https://348359842623.signin.aws.amazon.com/console
-username:  siddharth
-password: @abcd1234
+
 
 //For frontend => delete the node_modules/ and package-lock.json file
                => Then run commands > npm install
